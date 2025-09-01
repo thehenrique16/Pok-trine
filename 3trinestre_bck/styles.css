@@ -1,0 +1,139 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #ff0000, #ffcc00);
+  color: #333;
+  text-align: center;
+}
+
+/* Navbar */
+nav {
+  background-color: #FFCB05;
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+nav a {
+  text-decoration: none;
+  color: #3d3d3d;
+  font-weight: bold;
+  margin: 0 20px;
+  transition: color 0.3s;
+}
+nav a:hover {
+  color: #0078d4;
+}
+
+/* Sections */
+.section {
+  padding: 50px 20px;
+}
+
+/* Search bar */
+.search-bar {
+  padding: 10px;
+  margin: 20px auto;
+  border: 2px solid #FFCB05;
+  border-radius: 8px;
+  width: 300px;
+  font-size: 16px;
+}
+
+/* Pokedex grid */
+#pokedex-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 25px;
+  padding: 20px;
+  perspective: 1000px;
+}
+
+/* Flip card */
+.pokemon-card {
+  width: 200px;
+  height: 260px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+.pokemon-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+}
+.pokemon-card.flipped .pokemon-card-inner {
+  transform: rotateY(180deg);
+}
+/* Somente brilho no hover */
+.pokemon-card:hover {
+  box-shadow: 0 0 25px 8px rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+}
+
+/* Faces */
+.pokemon-card-front,
+.pokemon-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  background: white;
+}
+/* Frente */
+.pokemon-card-front {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.pokemon-card-front img {
+  width: 120px;
+  height: 120px;
+}
+/* Verso */
+.pokemon-card-back {
+  background: linear-gradient(135deg, #f8f8f8, #e2e2e2);
+  transform: rotateY(180deg);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.pokemon-card-back h3 {
+  color: #ff0000;
+  margin-bottom: 8px;
+  text-transform: capitalize;
+}
+.pokemon-card-back p {
+  font-size: 14px;
+  color: #444;
+  margin: 5px 0;
+}
+
+/* Treinadores */
+.trainers {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+.trainers img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 2px solid #ffcc00;
+}
